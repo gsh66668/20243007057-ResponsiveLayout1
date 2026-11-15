@@ -129,4 +129,42 @@
         android:textColor="@color/text_on_dark"
         android:textSize="@dimen/band_text_size" />
 
+    <!-- Band 5 : the button bar.
+         wrap_content height (it follows its buttons), no weight.
+         ?attr/colorSurface is the Material 3 surface colour (#FFFBFE) that the
+         reference screenshot shows behind the two buttons. -->
+    <LinearLayout
+        android:id="@+id/buttonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/button_bar_horizontal_padding"
+        android:paddingTop="@dimen/button_bar_vertical_padding"
+        android:paddingEnd="@dimen/button_bar_horizontal_padding"
+        android:paddingBottom="@dimen/button_bar_vertical_padding">
+
+        <!-- 0dp width + weight 1 -> the two buttons always split the row evenly
+             (the 40dp margin is taken out first, so both buttons stay equal). -->
+        <Button
+            android:id="@+id/buttonChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/button_gap"
+            android:layout_weight="1"
+            android:minHeight="@dimen/button_min_height"
+            android:text="@string/button_change"
+            android:textSize="@dimen/band_text_size" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="@dimen/button_min_height"
+            android:text="@string/button_cancel"
+            android:textSize="@dimen/band_text_size" />
+    </LinearLayout>
+
 </LinearLayout>
