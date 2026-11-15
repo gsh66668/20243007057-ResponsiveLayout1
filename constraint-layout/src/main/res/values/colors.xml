@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen background (the tall black bands) -->
+    <color name="screen_background">#FF000000</color>
+
+    <!-- Band behind "Responsive Layout 1" -->
+    <color name="white_band">#FFFFFFFF</color>
+
+    <!-- The four cells, sampled from the target screenshot -->
+    <color name="cell_red">#FFFF0000</color>
+    <color name="cell_blue">#FF0000FF</color>
+    <color name="cell_purple">#FF673AB7</color>
+    <color name="cell_yellow">#FFFFFF00</color>
+
+    <color name="text_on_dark">#FFFFFFFF</color>
+    <color name="text_on_light">#FF000000</color>
+</resources>

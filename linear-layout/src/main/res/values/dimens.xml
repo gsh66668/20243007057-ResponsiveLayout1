@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- One text size for every label keeps the screen visually consistent -->
+    <dimen name="band_text_size">20sp</dimen>
+
+    <!-- Space around / between the two buttons -->
+    <dimen name="button_bar_horizontal_padding">20dp</dimen>
+    <dimen name="button_bar_vertical_padding">28dp</dimen>
+    <dimen name="button_gap">40dp</dimen>
+    <dimen name="button_min_height">80dp</dimen>
+</resources>

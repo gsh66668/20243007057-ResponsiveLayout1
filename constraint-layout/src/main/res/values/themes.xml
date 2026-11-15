@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 light theme without an action bar: the reference screenshot
+         shows the default Material 3 surface colour (#FFFBFE) and the default
+         Material 3 filled-button colour (#6750A4). -->
+    <style name="Theme.ResponsiveLayout1Constraint" parent="Theme.Material3.Light.NoActionBar" />
+</resources>
