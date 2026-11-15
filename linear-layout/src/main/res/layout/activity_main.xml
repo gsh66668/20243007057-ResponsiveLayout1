@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part 1 - the screen is built ONLY with LinearLayouts and layout_weight.
+
+    Why every attribute is here:
+
+    android:orientation="vertical"
+        The five bands are stacked top to bottom.
+
+    android:layout_height="0dp" + android:layout_weight
+        The four stretchable bands do NOT get a fixed height. A weight of 0dp
+        means "my height is decided by my weight, not by my content", so the
+        bands always fill the screen exactly and share the leftover space
+        proportionally:
+
+            Lab 1                  weight 1   -> 1/5 of the free height
+            Responsive Layout 1    weight 1   -> 1/5
+            coloured row           weight 1   -> 1/5
+            Android Application    weight 2   -> 2/5  (twice as tall)
+
+        Turn the phone, change the screen size or the font size and the
+        proportions stay identical - nothing is hard-coded.
+
+    The button bar is wrap_content: it must be exactly as tall as its content
+    plus its own padding, so it is NOT given a weight; the four weighted
+    bands share everything that is left over.
+
+    android:layout_width="0dp" + weight 1 on the four cells
+        A horizontal LinearLayout distributes the width the same way, so the
+        four cells are always exactly one quarter of the screen each, with no
+        gaps (the weights absorb the whole width).
+
+    No px anywhere: only dp / sp / match_parent / wrap_content / 0dp+weight.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    android:orientation="vertical">
+
+    <!-- Band 1 : the lab title, weight 1 -->
+    <TextView
+        android:id="@+id/textLabTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/lab_title"
+        android:textColor="@color/text_on_dark"
+        android:textSize="@dimen/band_text_size" />
+
+    <!-- Band 2 : white band, weight 1 -->
+    <TextView
+        android:id="@+id/textResponsiveTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white_band"
+        android:gravity="center"
+        android:text="@string/responsive_title"
+        android:textColor="@color/text_on_light"
+        android:textSize="@dimen/band_text_size" />
+
+    <!-- Band 3 : the coloured row, weight 1.
+         baselineAligned="false" is required here, otherwise the row would
+         align the baselines of the four cells and add extra height. -->
+    <LinearLayout
+        android:id="@+id/colorRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cellThis"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cell_red"
+            android:gravity="center"
+            android:text="@string/cell_this"
+            android:textColor="@color/text_on_dark"
+            android:textSize="@dimen/band_text_size" />
+
+        <TextView
+            android:id="@+id/cellIs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cell_blue"
+            android:gravity="center"
+            android:text="@string/cell_is"
+            android:textColor="@color/text_on_dark"
+            android:textSize="@dimen/band_text_size" />
+
+        <TextView
+            android:id="@+id/cellMy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cell_purple"
+            android:gravity="center"
+            android:text="@string/cell_my"
+            android:textColor="@color/text_on_dark"
+            android:textSize="@dimen/band_text_size" />
+
+        <TextView
+            android:id="@+id/cellFirst"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cell_yellow"
+            android:gravity="center"
+            android:text="@string/cell_first"
+            android:textColor="@color/text_on_light"
+            android:textSize="@dimen/band_text_size" />
+    </LinearLayout>
+
+    <!-- Band 4 : the tallest band, weight 2 -->
+    <TextView
+        android:id="@+id/textApplicationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="@string/application_title"
+        android:textColor="@color/text_on_dark"
+        android:textSize="@dimen/band_text_size" />
+
+</LinearLayout>
